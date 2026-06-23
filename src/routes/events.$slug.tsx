@@ -1,7 +1,7 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { ArrowLeft, ArrowUpRight, Calendar, Clock, MapPin, Ticket } from "lucide-react";
 import { SectionEyebrow } from "@/components/site/Section";
-import { getEventBySlug, events } from "@/data/events";
+import { getEventBySlug, events, type EventItem } from "@/data/events";
 
 export const Route = createFileRoute("/events/$slug")({
   loader: ({ params }) => {
@@ -42,7 +42,7 @@ export const Route = createFileRoute("/events/$slug")({
 });
 
 function EventDetail() {
-  const { event } = Route.useLoaderData();
+  const { event } = Route.useLoaderData() as { event: EventItem };
   const related = events.filter((e) => e.slug !== event.slug && e.category === event.category).slice(0, 3);
   const mapsQuery = encodeURIComponent(`${event.venue} ${event.address}`);
 
