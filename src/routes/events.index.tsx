@@ -1,4 +1,4 @@
-import { createFileRoute, Outlet, useLocation } from "@tanstack/react-router";
+import { createFileRoute } from "@tanstack/react-router";
 import { useMemo, useState } from "react";
 import { Search } from "lucide-react";
 import { EventCard } from "@/components/site/EventCard";
@@ -14,14 +14,9 @@ export const Route = createFileRoute("/events/")({
       { property: "og:description", content: "Concerts, celebrity nights, cultural festivals and more — live across North America." },
     ],
   }),
-  component: EventsLayout,
+  component: EventsIndex,
 });
 
-function EventsLayout() {
-  const { pathname } = useLocation();
-  if (pathname !== "/events") return <Outlet />;
-  return <EventsIndex />;
-}
 
 function EventsIndex() {
   const [q, setQ] = useState("");
