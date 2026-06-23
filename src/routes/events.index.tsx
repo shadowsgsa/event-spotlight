@@ -5,7 +5,7 @@ import { EventCard } from "@/components/site/EventCard";
 import { SectionEyebrow } from "@/components/site/Section";
 import { upcomingEvents, eventCategories, type EventCategory } from "@/data/events";
 
-export const Route = createFileRoute("/events")({
+export const Route = createFileRoute("/events/")({
   head: () => ({
     meta: [
       { title: "Upcoming Events — 24 Seven Event" },
