@@ -1,4 +1,4 @@
-import { Link } from "@tanstack/react-router";
+import { NavLink, Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 
@@ -43,14 +43,18 @@ export function SiteNav() {
 
         <nav className="hidden lg:flex items-center gap-8">
           {links.map((l) => (
-            <Link
+            <NavLink
               key={l.to}
               to={l.to}
-              activeOptions={{ exact: l.to === "/" }}
-              className="text-[13px] tracking-[0.18em] uppercase font-button font-semibold text-muted-foreground hover:text-foreground transition-colors data-[status=active]:text-foreground relative"
+              end={l.to === "/"}
+              className={({ isActive }) =>
+                `text-[13px] tracking-[0.18em] uppercase font-button font-semibold hover:text-foreground transition-colors relative ${
+                  isActive ? "text-foreground" : "text-muted-foreground"
+                }`
+              }
             >
               {l.label}
-            </Link>
+            </NavLink>
           ))}
         </nav>
 
