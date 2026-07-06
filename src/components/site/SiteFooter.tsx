@@ -63,7 +63,7 @@ export function SiteFooter() {
           <ul className="space-y-3 text-sm text-muted-foreground">
             <li className="flex gap-2"><Phone size={14} className="mt-1" /> 940-367-1582</li>
             <li className="flex gap-2"><Phone size={14} className="mt-1" /> 817-883-3333</li>
-            <li className="flex gap-2"><Mail size={14} className="mt-1" /> hello@24sevenevent.com</li>
+            <li className="flex gap-2"><Mail size={14} className="mt-1" /> Twentyfourseven141@gmail.com</li>
             <li className="flex gap-2"><MapPin size={14} className="mt-1" /> Dallas–Fort Worth, TX</li>
           </ul>
         </div>

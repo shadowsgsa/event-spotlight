@@ -338,17 +338,26 @@ function About() {
       <div className="relative mx-auto max-w-7xl px-6 lg:px-10">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           <div>
-            <SectionEyebrow>About 24 Seven Event</SectionEyebrow>
+            <SectionEyebrow>Welcome to 24/7</SectionEyebrow>
             <SectionTitle>
-              We don't just book shows.
+              Turning ordinary moments into
               <br />
-              We produce <span className="text-gold-gradient">nights you'll remember.</span>
+              <span className="text-gold-gradient">extraordinary experiences.</span>
             </SectionTitle>
             <p className="mt-6 text-muted-foreground leading-relaxed text-base">
-              24 Seven Event is a premier entertainment company specializing in concerts, celebrity
-              appearances, cultural events and unforgettable live experiences across North America.
-              From red-carpet meet & greets to multi-city tours, we handle the production,
-              promotion and partnerships end-to-end.
+              At 24/7 Entertainment, we turn ordinary moments into extraordinary experiences. As a
+              leading entertainment and event management company based in Dallas, Texas, we
+              specialize in producing spectacular concerts, celebrity appearances, cultural
+              festivals, corporate events, and community celebrations.
+            </p>
+            <p className="mt-4 text-muted-foreground leading-relaxed text-base">
+              With a passion for entertainment and a commitment to excellence, our team creates
+              unforgettable experiences that bring people together through music, culture, and
+              celebration. From intimate gatherings to large-scale productions, we deliver events
+              that leave lasting memories.
+            </p>
+            <p className="mt-4 text-[var(--gold)] font-button tracking-wide text-sm uppercase">
+              Entertainment Never Stops — That's Why We're Here 24/7.
             </p>
             <div className="mt-8 flex gap-4">
               <Link to="/about" className="btn-hero">
