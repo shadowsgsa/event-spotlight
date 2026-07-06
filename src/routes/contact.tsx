@@ -38,8 +38,7 @@ function Contact() {
               <p>Reema Dodani — 817-652-9872</p>
             </ContactRow>
             <ContactRow Icon={Mail} title="Email">
-              <p>hello@24sevenevent.com</p>
-              <p>sponsors@24sevenevent.com</p>
+              <p>Twentyfourseven141@gmail.com</p>
             </ContactRow>
             <ContactRow Icon={MapPin} title="Based in">
               <p>Dallas–Fort Worth, TX</p>
