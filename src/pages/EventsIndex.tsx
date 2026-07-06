@@ -1,24 +1,11 @@
-import { createFileRoute } from "@tanstack/react-router";
 import { useMemo, useState } from "react";
 import { Search } from "lucide-react";
 import { EventCard } from "@/components/site/EventCard";
 import { SectionEyebrow } from "@/components/site/Section";
+import { SEO } from "@/components/site/SEO";
 import { upcomingEvents, eventCategories, type EventCategory } from "@/data/events";
 
-export const Route = createFileRoute("/events/")({
-  head: () => ({
-    meta: [
-      { title: "Upcoming Events — 24 Seven Event" },
-      { name: "description", content: "Browse upcoming concerts, meet & greets, festivals and corporate events produced by 24 Seven Event." },
-      { property: "og:title", content: "Upcoming Events — 24 Seven Event" },
-      { property: "og:description", content: "Concerts, celebrity nights, cultural festivals and more — live across North America." },
-    ],
-  }),
-  component: EventsIndex,
-});
-
-
-function EventsIndex() {
+export default function EventsIndex() {
   const [q, setQ] = useState("");
   const [cat, setCat] = useState<EventCategory | "All">("All");
   const [city, setCity] = useState<string>("All");
@@ -35,6 +22,7 @@ function EventsIndex() {
 
   return (
     <div>
+      <SEO title="Upcoming Events — 24 Seven Event" description="Browse upcoming concerts, meet & greets, festivals and corporate events." />
       <section className="relative pt-24 pb-16 border-b border-border">
         <div className="mx-auto max-w-7xl px-6 lg:px-10">
           <SectionEyebrow>All Events</SectionEyebrow>

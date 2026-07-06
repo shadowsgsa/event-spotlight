@@ -1,53 +1,35 @@
-import { createFileRoute, Link, notFound } from "@tanstack/react-router";
+import { Link, useParams } from "react-router-dom";
 import { ArrowLeft, ArrowUpRight, Calendar, Clock, MapPin, Ticket } from "lucide-react";
 import { SectionEyebrow } from "@/components/site/Section";
-import { getEventBySlug, events, type EventItem } from "@/data/events";
+import { SEO } from "@/components/site/SEO";
+import { getEventBySlug, events } from "@/data/events";
 
-export const Route = createFileRoute("/events/$slug")({
-  loader: ({ params }) => {
-    const event = getEventBySlug(params.slug);
-    if (!event) throw notFound();
-    return { event };
-  },
-  head: ({ loaderData }) => {
-    const e = loaderData?.event;
-    return {
-      meta: e
-        ? [
-            { title: `${e.title} — 24 Seven Event` },
-            { name: "description", content: e.description.slice(0, 158) },
-            { property: "og:title", content: `${e.title} — 24 Seven Event` },
-            { property: "og:description", content: e.description.slice(0, 158) },
-            { property: "og:image", content: e.poster },
-            { name: "twitter:image", content: e.poster },
-          ]
-        : [{ title: "Event — 24 Seven Event" }],
-    };
-  },
-  notFoundComponent: () => (
-    <div className="mx-auto max-w-2xl px-6 py-32 text-center">
-      <h1 className="text-display text-5xl">Event not found</h1>
-      <p className="text-muted-foreground mt-4">This event may have moved or been removed.</p>
-      <Link to="/events" className="btn-hero mt-8 inline-flex">All Events</Link>
-    </div>
-  ),
-  errorComponent: ({ error, reset }) => (
-    <div className="mx-auto max-w-2xl px-6 py-32 text-center">
-      <h1 className="text-display text-4xl">Something went wrong</h1>
-      <p className="text-muted-foreground mt-4">{error.message}</p>
-      <button onClick={() => reset()} className="btn-hero mt-8 inline-flex">Retry</button>
-    </div>
-  ),
-  component: EventDetail,
-});
+export default function EventDetail() {
+  const { slug = "" } = useParams();
+  const event = getEventBySlug(slug);
 
-function EventDetail() {
-  const { event } = Route.useLoaderData() as { event: EventItem };
+  if (!event) {
+    return (
+      <div className="mx-auto max-w-2xl px-6 py-32 text-center">
+        <SEO title="Event not found — 24 Seven Event" description="This event may have moved or been removed." />
+        <h1 className="text-display text-5xl">Event not found</h1>
+        <p className="text-muted-foreground mt-4">This event may have moved or been removed.</p>
+        <Link to="/events" className="btn-hero mt-8 inline-flex">All Events</Link>
+      </div>
+    );
+  }
+
   const related = events.filter((e) => e.slug !== event.slug && e.category === event.category).slice(0, 3);
   const mapsQuery = encodeURIComponent(`${event.venue} ${event.address}`);
 
   return (
     <article>
+      <SEO
+        title={`${event.title} — 24 Seven Event`}
+        description={event.description.slice(0, 158)}
+        image={event.poster}
+        type="article"
+      />
       <section className="relative min-h-[80svh] flex items-end overflow-hidden">
         <div className="absolute inset-0">
           <img src={event.poster} alt={event.title} className="absolute inset-0 h-full w-full object-cover blur-2xl scale-125 opacity-50" />
@@ -155,8 +137,7 @@ function EventDetail() {
               {related.map((e) => (
                 <Link
                   key={e.slug}
-                  to="/events/$slug"
-                  params={{ slug: e.slug }}
+                  to={`/events/${e.slug}`}
                   className="cinema-card group block aspect-[3/4] overflow-hidden relative"
                 >
                   <img src={e.poster} alt={e.title} loading="lazy" className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-110" />

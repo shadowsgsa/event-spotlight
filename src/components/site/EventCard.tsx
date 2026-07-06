@@ -1,12 +1,11 @@
-import { Link } from "@tanstack/react-router";
+import { Link } from "react-router-dom";
 import { Calendar, MapPin, ArrowUpRight } from "lucide-react";
 import type { EventItem } from "@/data/events";
 
 export function EventCard({ event }: { event: EventItem }) {
   return (
     <Link
-      to="/events/$slug"
-      params={{ slug: event.slug }}
+      to={`/events/${event.slug}`}
       className="cinema-card group flex flex-col"
     >
       <div className="relative aspect-[3/4] overflow-hidden">

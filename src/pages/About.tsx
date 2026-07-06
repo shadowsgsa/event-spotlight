@@ -1,27 +1,20 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { Link } from "react-router-dom";
 import { ArrowRight, Music2, Star, Globe2, Briefcase, Settings2, Handshake } from "lucide-react";
 import { SectionEyebrow, SectionTitle } from "@/components/site/Section";
+import { SEO } from "@/components/site/SEO";
 import aboutStage from "@/assets/about-stage.jpg";
 import redCarpet from "@/assets/event-red-carpet.jpg";
 import bollywoodNight from "@/assets/event-bollywood-night.jpg";
 import corporateGala from "@/assets/event-corporate-gala.jpg";
 
-export const Route = createFileRoute("/about")({
-  head: () => ({
-    meta: [
-      { title: "About — 24 Seven Event" },
-      { name: "description", content: "Premier entertainment company producing concerts, celebrity events, cultural shows and corporate experiences across North America." },
-      { property: "og:title", content: "About — 24 Seven Event" },
-      { property: "og:description", content: "Our story, mission and the team behind the shows." },
-      { property: "og:image", content: aboutStage },
-    ],
-  }),
-  component: About,
-});
-
-function About() {
+export default function About() {
   return (
     <div>
+      <SEO
+        title="About — 24 Seven Event"
+        description="Premier entertainment company producing concerts, celebrity events, cultural shows and corporate experiences across North America."
+        image={aboutStage}
+      />
       <section className="relative pt-24 pb-16 overflow-hidden">
         <div className="absolute inset-0">
           <img src={aboutStage} alt="" className="absolute inset-0 h-full w-full object-cover opacity-40" />

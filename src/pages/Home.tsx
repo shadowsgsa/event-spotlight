@@ -1,4 +1,4 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { Link } from "react-router-dom";
 import { useEffect, useRef, useState } from "react";
 import {
   ArrowRight,
@@ -6,7 +6,6 @@ import {
   Sparkles,
   Users,
   Globe2,
-  Calendar as CalIcon,
   Handshake,
   Quote,
   Instagram,
@@ -14,6 +13,7 @@ import {
 } from "lucide-react";
 import { EventCard } from "@/components/site/EventCard";
 import { SectionEyebrow, SectionTitle } from "@/components/site/Section";
+import { SEO } from "@/components/site/SEO";
 import {
   events,
   featuredEvents,
@@ -24,26 +24,6 @@ import {
 } from "@/data/events";
 import heroConcert from "@/assets/hero-concert.jpg";
 import aboutStage from "@/assets/about-stage.jpg";
-
-export const Route = createFileRoute("/")({
-  head: () => ({
-    meta: [
-      { title: "24 Seven Event — Concerts, Celebrities & Cultural Experiences" },
-      {
-        name: "description",
-        content:
-          "Concerts, celebrity meet & greets, cultural festivals and corporate events across North America. Browse upcoming shows and buy tickets through our partners.",
-      },
-      { property: "og:title", content: "24 Seven Event — Premium Live Entertainment" },
-      {
-        property: "og:description",
-        content:
-          "Creating unforgettable entertainment experiences — from concerts and celebrity meet & greets to cultural festivals.",
-      },
-    ],
-  }),
-  component: Home,
-});
 
 function useCounter(target: number, durationMs = 1600) {
   const [value, setValue] = useState(0);
@@ -291,8 +271,7 @@ function PastShowcase() {
           {[...pastEvents, ...featuredEvents.slice(0, 3)].map((e, i) => (
             <Link
               key={e.slug + i}
-              to="/events/$slug"
-              params={{ slug: e.slug }}
+              to={`/events/${e.slug}`}
               className="cinema-card group block break-inside-avoid"
               style={{ aspectRatio: i % 3 === 0 ? "3/4" : i % 3 === 1 ? "4/5" : "3/4.5" }}
             >
@@ -328,7 +307,7 @@ function PastShowcase() {
   );
 }
 
-function About() {
+function AboutSection() {
   return (
     <section className="relative py-24 md:py-32 overflow-hidden border-t border-border">
       <div className="absolute inset-0">
@@ -465,21 +444,9 @@ function SponsorForm() {
 }
 
 const testimonials = [
-  {
-    quote: "From booking to backstage, every detail was world-class. The audience response was unreal.",
-    name: "Andy Lalani",
-    role: "Tour Producer",
-  },
-  {
-    quote: "24 Seven turned our brand activation into a moment the city is still talking about.",
-    name: "Meenu Gupta",
-    role: "VOG USA Inc.",
-  },
-  {
-    quote: "The most well-produced South-Asian show I've performed at in the United States.",
-    name: "Headline Artist",
-    role: "Bollywood Playback Singer",
-  },
+  { quote: "From booking to backstage, every detail was world-class. The audience response was unreal.", name: "Andy Lalani", role: "Tour Producer" },
+  { quote: "24 Seven turned our brand activation into a moment the city is still talking about.", name: "Meenu Gupta", role: "VOG USA Inc." },
+  { quote: "The most well-produced South-Asian show I've performed at in the United States.", name: "Headline Artist", role: "Bollywood Playback Singer" },
 ];
 
 function Testimonials() {
@@ -494,9 +461,7 @@ function Testimonials() {
           {testimonials.map((t) => (
             <figure key={t.name} className="cinema-card p-8 flex flex-col">
               <Quote className="text-[var(--gold)]" size={28} />
-              <blockquote className="mt-6 text-lg leading-relaxed text-foreground/90">
-                "{t.quote}"
-              </blockquote>
+              <blockquote className="mt-6 text-lg leading-relaxed text-foreground/90">"{t.quote}"</blockquote>
               <figcaption className="mt-8 pt-6 border-t border-border">
                 <div className="font-button font-semibold tracking-wide text-foreground">{t.name}</div>
                 <div className="text-xs text-muted-foreground mt-1 tracking-widest uppercase">{t.role}</div>
@@ -509,16 +474,7 @@ function Testimonials() {
   );
 }
 
-const partners = [
-  "MERA BOX OFFICE",
-  "SULEKHA",
-  "RHYVURB",
-  "FARM HOUSE MUSIC",
-  "PANDA MONEY",
-  "JIMMY'S",
-  "FOUR SEASONS",
-  "VINESSA EVENTS",
-];
+const partners = ["MERA BOX OFFICE", "SULEKHA", "RHYVURB", "FARM HOUSE MUSIC", "PANDA MONEY", "JIMMY'S", "FOUR SEASONS", "VINESSA EVENTS"];
 
 function Partners() {
   return (
@@ -533,10 +489,7 @@ function Partners() {
         <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-background to-transparent z-10" />
         <div className="flex gap-14 animate-marquee whitespace-nowrap w-max">
           {[...partners, ...partners].map((p, i) => (
-            <span
-              key={i}
-              className="text-display text-3xl tracking-[0.15em] text-muted-foreground/60 hover:text-[var(--gold)] transition-colors"
-            >
+            <span key={i} className="text-display text-3xl tracking-[0.15em] text-muted-foreground/60 hover:text-[var(--gold)] transition-colors">
               {p}
             </span>
           ))}
@@ -564,12 +517,7 @@ function InstaAndNewsletter() {
                 rel="noreferrer"
                 className="cinema-card aspect-square overflow-hidden group"
               >
-                <img
-                  src={e.poster}
-                  alt={e.title}
-                  loading="lazy"
-                  className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
-                />
+                <img src={e.poster} alt={e.title} loading="lazy" className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110" />
               </a>
             ))}
           </div>
@@ -588,10 +536,7 @@ function NewsletterCard() {
   const [done, setDone] = useState(false);
   return (
     <form
-      onSubmit={(e) => {
-        e.preventDefault();
-        setDone(true);
-      }}
+      onSubmit={(e) => { e.preventDefault(); setDone(true); }}
       className="cinema-card p-10 md:p-14 self-center grain-overlay"
     >
       <SectionEyebrow>Newsletter</SectionEyebrow>
@@ -603,19 +548,10 @@ function NewsletterCard() {
         Get early access to ticket releases, VIP upgrades and behind-the-scenes drops.
       </p>
       <div className="mt-8 grid gap-4">
-        <input
-          required
-          placeholder="Your name"
-          className="bg-background/60 border border-border rounded-lg px-4 py-3 focus:outline-none focus:border-[var(--gold)]"
-        />
+        <input required placeholder="Your name" className="bg-background/60 border border-border rounded-lg px-4 py-3 focus:outline-none focus:border-[var(--gold)]" />
         <div className="relative">
           <Mail className="absolute left-4 top-1/2 -translate-y-1/2 text-muted-foreground" size={16} />
-          <input
-            required
-            type="email"
-            placeholder="you@example.com"
-            className="w-full bg-background/60 border border-border rounded-lg pl-11 pr-4 py-3 focus:outline-none focus:border-[var(--gold)]"
-          />
+          <input required type="email" placeholder="you@example.com" className="w-full bg-background/60 border border-border rounded-lg pl-11 pr-4 py-3 focus:outline-none focus:border-[var(--gold)]" />
         </div>
         <button type="submit" className="btn-hero">
           {done ? "You're on the list" : "Subscribe"}
@@ -626,15 +562,20 @@ function NewsletterCard() {
   );
 }
 
-function Home() {
+export default function Home() {
   return (
     <div>
+      <SEO
+        title="24 Seven Event — Concerts, Celebrities & Cultural Experiences"
+        description="Concerts, celebrity meet & greets, cultural festivals and corporate events across North America. Browse upcoming shows and buy tickets through our partners."
+        image={heroConcert}
+      />
       <Hero />
       <FeaturedStrip />
       <UpcomingGrid />
       <VideoHighlights />
       <PastShowcase />
-      <About />
+      <AboutSection />
       <Sponsorship />
       <Testimonials />
       <Partners />
@@ -642,6 +583,3 @@ function Home() {
     </div>
   );
 }
-
-// Silence unused-import warning for CalIcon kept for future expansion
-void CalIcon;

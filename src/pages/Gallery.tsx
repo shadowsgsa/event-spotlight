@@ -1,7 +1,7 @@
-import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { X, Play } from "lucide-react";
 import { SectionEyebrow } from "@/components/site/Section";
+import { SEO } from "@/components/site/SEO";
 import bollywoodNight from "@/assets/event-bollywood-night.jpg";
 import culturalFest from "@/assets/event-cultural-fest.jpg";
 import redCarpet from "@/assets/event-red-carpet.jpg";
@@ -10,18 +10,6 @@ import diwaliNight from "@/assets/event-diwali-night.jpg";
 import comedyNight from "@/assets/event-comedy-night.jpg";
 import aboutStage from "@/assets/about-stage.jpg";
 import heroConcert from "@/assets/hero-concert.jpg";
-
-export const Route = createFileRoute("/gallery")({
-  head: () => ({
-    meta: [
-      { title: "Gallery — 24 Seven Event" },
-      { name: "description", content: "Photos and videos from past 24 Seven Event productions — concerts, celebrity nights and corporate galas." },
-      { property: "og:title", content: "Gallery — 24 Seven Event" },
-      { property: "og:description", content: "Highlights from past productions." },
-    ],
-  }),
-  component: Gallery,
-});
 
 type Cat = "All" | "Concerts" | "Celebrity Events" | "Corporate Events";
 
@@ -42,13 +30,14 @@ const videos = [
   { id: "K4DyBUG242c", title: "Diwali Night 2025" },
 ];
 
-function Gallery() {
+export default function Gallery() {
   const [cat, setCat] = useState<Cat>("All");
   const [light, setLight] = useState<string | null>(null);
   const list = cat === "All" ? photos : photos.filter((p) => p.cat === cat);
 
   return (
     <div>
+      <SEO title="Gallery — 24 Seven Event" description="Photos and videos from past 24 Seven Event productions." />
       <section className="pt-24 pb-12">
         <div className="mx-auto max-w-7xl px-6 lg:px-10">
           <SectionEyebrow>Gallery</SectionEyebrow>

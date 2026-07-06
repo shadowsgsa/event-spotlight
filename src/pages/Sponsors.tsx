@@ -1,19 +1,7 @@
-import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { Check, ArrowRight } from "lucide-react";
 import { SectionEyebrow, SectionTitle } from "@/components/site/Section";
-
-export const Route = createFileRoute("/sponsors")({
-  head: () => ({
-    meta: [
-      { title: "Sponsors — 24 Seven Event" },
-      { name: "description", content: "Sponsorship packages and inquiry for 24 Seven Event productions." },
-      { property: "og:title", content: "Sponsorship — 24 Seven Event" },
-      { property: "og:description", content: "Partner with 24 Seven Event. Audience reach, VIP networking, brand exposure." },
-    ],
-  }),
-  component: Sponsors,
-});
+import { SEO } from "@/components/site/SEO";
 
 const packages = [
   {
@@ -34,11 +22,12 @@ const packages = [
   },
 ];
 
-function Sponsors() {
+export default function Sponsors() {
   const [submitted, setSubmitted] = useState(false);
 
   return (
     <div>
+      <SEO title="Sponsors — 24 Seven Event" description="Sponsorship packages and inquiry for 24 Seven Event productions." />
       <section className="relative pt-24 pb-16">
         <div className="mx-auto max-w-7xl px-6 lg:px-10">
           <SectionEyebrow>Partner With Us</SectionEyebrow>

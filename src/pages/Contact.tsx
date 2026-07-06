@@ -1,24 +1,13 @@
-import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { Phone, Mail, MapPin, Instagram, Facebook, Youtube, ArrowRight } from "lucide-react";
 import { SectionEyebrow } from "@/components/site/Section";
+import { SEO } from "@/components/site/SEO";
 
-export const Route = createFileRoute("/contact")({
-  head: () => ({
-    meta: [
-      { title: "Contact — 24 Seven Event" },
-      { name: "description", content: "Get in touch with 24 Seven Event for bookings, sponsorships and press inquiries." },
-      { property: "og:title", content: "Contact — 24 Seven Event" },
-      { property: "og:description", content: "Bookings, sponsorships, press." },
-    ],
-  }),
-  component: Contact,
-});
-
-function Contact() {
+export default function Contact() {
   const [done, setDone] = useState(false);
   return (
     <div>
+      <SEO title="Contact — 24 Seven Event" description="Get in touch with 24 Seven Event for bookings, sponsorships and press inquiries." />
       <section className="pt-24 pb-12">
         <div className="mx-auto max-w-7xl px-6 lg:px-10">
           <SectionEyebrow>Contact</SectionEyebrow>
