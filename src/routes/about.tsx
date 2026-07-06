@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Music2, Star, Globe2, Briefcase, Settings2, Handshake } from "lucide-react";
 import { SectionEyebrow, SectionTitle } from "@/components/site/Section";
 import aboutStage from "@/assets/about-stage.jpg";
 import redCarpet from "@/assets/event-red-carpet.jpg";
@@ -37,21 +37,81 @@ function About() {
       </section>
 
       <section className="py-20">
+        <div className="mx-auto max-w-4xl px-6 lg:px-10">
+          <SectionEyebrow>Who We Are</SectionEyebrow>
+          <h2 className="text-display text-3xl md:text-5xl mt-3">
+            Bringing people together through <span className="text-gold-gradient">entertainment.</span>
+          </h2>
+          <div className="mt-8 space-y-5 text-muted-foreground leading-relaxed text-base">
+            <p>
+              24/7 Entertainment is a premier entertainment and event production company dedicated
+              to creating world-class experiences for audiences across the United States. We
+              specialize in organizing concerts, live shows, celebrity events, cultural festivals,
+              and corporate gatherings that celebrate diversity and bring communities together.
+            </p>
+            <p>
+              Over the years, we have built a reputation for delivering exceptional events with
+              creativity, professionalism, and attention to detail. Our experienced team handles
+              every aspect of event planning and execution, ensuring that every event is seamless,
+              exciting, and memorable.
+            </p>
+            <p>
+              Whether it's a sold-out concert featuring renowned artists or a community festival
+              celebrating culture and tradition, our mission remains the same — to create
+              meaningful experiences that inspire, entertain, and connect people.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-20 border-t border-border">
+        <div className="mx-auto max-w-7xl px-6 lg:px-10">
+          <div className="max-w-3xl">
+            <SectionEyebrow>Our Services</SectionEyebrow>
+            <SectionTitle>What we <span className="text-gold-gradient">produce</span></SectionTitle>
+          </div>
+          <div className="mt-12 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {[
+              { Icon: Music2, title: "Concerts & Live Entertainment", desc: "Producing unforgettable live concerts featuring celebrated artists, singers, musicians, and performers from around the world." },
+              { Icon: Star, title: "Celebrity Events", desc: "Organizing celebrity appearances, meet-and-greets, award nights, and exclusive entertainment experiences." },
+              { Icon: Globe2, title: "Cultural Festivals & Community Events", desc: "Creating vibrant cultural celebrations that showcase traditions, music, dance, and community spirit." },
+              { Icon: Briefcase, title: "Corporate Events", desc: "Delivering professional event planning services for conferences, company celebrations, product launches, and special occasions." },
+              { Icon: Settings2, title: "Event Production & Management", desc: "Complete event solutions including venue coordination, stage production, artist management, marketing, and on-site execution." },
+              { Icon: Handshake, title: "Sponsorship & Brand Partnerships", desc: "Connecting businesses with audiences through strategic sponsorship opportunities and creative brand activations." },
+            ].map(({ Icon, title, desc }) => (
+              <div key={title} className="cinema-card p-8">
+                <div className="h-12 w-12 rounded-full grid place-items-center bg-[var(--gold)]/10 text-[var(--gold)] mb-5">
+                  <Icon size={20} />
+                </div>
+                <h3 className="text-display text-2xl">{title}</h3>
+                <p className="text-sm text-muted-foreground mt-3 leading-relaxed">{desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="py-20 border-t border-border">
         <div className="mx-auto max-w-5xl px-6 lg:px-10 grid md:grid-cols-2 gap-12">
           <div>
             <SectionEyebrow>Our Mission</SectionEyebrow>
-            <h2 className="text-display text-3xl md:text-4xl mt-3">Make every night feel like the first row.</h2>
+            <h2 className="text-display text-3xl md:text-4xl mt-3">
+              Extraordinary experiences that <span className="text-gold-gradient">unite</span> communities.
+            </h2>
             <p className="mt-5 text-muted-foreground leading-relaxed">
-              We exist to produce live moments people remember decades later — the songs you sang along
-              to, the meet-and-greet handshake, the laughter that filled the room.
+              To create extraordinary entertainment experiences that inspire, unite, and celebrate
+              communities through exceptional events and unforgettable moments.
             </p>
           </div>
           <div>
             <SectionEyebrow>Our Vision</SectionEyebrow>
-            <h2 className="text-display text-3xl md:text-4xl mt-3">Be the home of premium South-Asian & global entertainment in North America.</h2>
+            <h2 className="text-display text-3xl md:text-4xl mt-3">
+              A globally recognized name in <span className="text-gold-gradient">live entertainment.</span>
+            </h2>
             <p className="mt-5 text-muted-foreground leading-relaxed">
-              From local community festivals to international touring artists, we bring craftsmanship,
-              hospitality and cinematic production to every show.
+              To become a globally recognized entertainment and event company known for innovation,
+              excellence, and creating experiences that bring people together through the power of
+              music, culture, and celebration.
             </p>
           </div>
         </div>
