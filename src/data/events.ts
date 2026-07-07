@@ -1,6 +1,6 @@
-import luckyAliDinner from "@/assets/lucky-ali-dinner.png.asset.json";
-import luckyAliDallas from "@/assets/lucky-ali-dallas.png.asset.json";
-import badBoys from "@/assets/bad-boys.png.asset.json";
+import luckyAliDinner from "@/assets/images/lucky-ali-dinner.png";
+import luckyAliDallas from "@/assets/images/lucky-ali-dallas.png";
+import badBoys from "@/assets/images/bad-boys.png";
 import bollywoodNight from "@/assets/event-bollywood-night.jpg";
 import culturalFest from "@/assets/event-cultural-fest.jpg";
 import redCarpet from "@/assets/event-red-carpet.jpg";
@@ -49,7 +49,7 @@ export const events: EventItem[] = [
     venue: "The Meridian",
     address: "351 Southwind Lane, Fairview, TX 75069",
     city: "Fairview, TX",
-    poster: luckyAliDinner.url,
+    poster: luckyAliDinner,
     description:
       "An intimate evening with the legendary Lucky Ali — featuring a curated dinner, live acoustic performance and a conversation with the artist himself. Limited VIP meet & greet seats available.",
     artists: ["Lucky Ali"],
@@ -69,7 +69,7 @@ export const events: EventItem[] = [
     venue: "Grand Center",
     address: "300 Chisholm Pl, Plano, TX 75075",
     city: "Plano, TX",
-    poster: luckyAliDallas.url,
+    poster: luckyAliDallas,
     description:
       "First time in history — live in USA. Witness the songs that defined a generation, sung right in front of you on the Journey Through The Decades Tour.",
     artists: ["Lucky Ali"],
@@ -89,7 +89,7 @@ export const events: EventItem[] = [
     venue: "Curtis Culwell Center",
     address: "4999 Naaman Forest Blvd, Garland, TX",
     city: "Garland, TX",
-    poster: badBoys.url,
+    poster: badBoys,
     description:
       "Chunky Panday, Shakti Kapoor and Gulshan Grover — the original Bollywood Bad Boys — together on stage for an unforgettable night of stories, music and live entertainment.",
     artists: ["Chunky Panday", "Shakti Kapoor", "Gulshan Grover"],
