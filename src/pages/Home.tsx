@@ -212,7 +212,7 @@ function VideoHighlights() {
           </div>
         </div>
 
-        <div className="grid lg:grid-cols-3 gap-6">
+        <div className="grid lg:grid-cols-3 gap-4">
           <div className="lg:col-span-2 cinema-card aspect-video overflow-hidden">
             <iframe
               key={active.id}
@@ -223,7 +223,7 @@ function VideoHighlights() {
               allowFullScreen
             />
           </div>
-          <div className="grid grid-cols-2 lg:grid-cols-1 gap-4">
+          <div className="grid grid-cols-2 lg:grid-cols-1 gap-3">
             {videos.map((v) => (
               <button
                 key={v.id}
@@ -267,13 +267,12 @@ function PastShowcase() {
           </SectionTitle>
         </div>
 
-        <div className="mt-14 columns-1 sm:columns-2 lg:columns-3 gap-6 space-y-6">
+        <div className="mt-14 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
           {[...pastEvents, ...featuredEvents.slice(0, 3)].map((e, i) => (
             <Link
               key={e.slug + i}
               to={`/events/${e.slug}`}
-              className="cinema-card group block break-inside-avoid"
-              style={{ aspectRatio: i % 3 === 0 ? "3/4" : i % 3 === 1 ? "4/5" : "3/4.5" }}
+              className="cinema-card group block aspect-[3/4]"
             >
               <div className="relative h-full w-full overflow-hidden">
                 <img
@@ -364,8 +363,10 @@ function Sponsorship() {
     { Icon: Globe2, title: "Community Engagement", desc: "Be part of culture, not just a banner on the wall." },
   ];
   return (
-    <section className="relative py-24 md:py-32 border-t border-border">
-      <div className="mx-auto max-w-7xl px-6 lg:px-10 grid lg:grid-cols-2 gap-16">
+    <section className="relative py-24 md:py-32 border-t border-border overflow-hidden">
+      <div className="absolute inset-0 bg-gradient-to-br from-[var(--gold)]/[0.08] via-background to-[var(--ember)]/[0.06]" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,oklch(0.78_0.13_85/0.15),transparent_60%)]" />
+      <div className="relative mx-auto max-w-7xl px-6 lg:px-10 grid lg:grid-cols-2 gap-16">
         <div>
           <SectionEyebrow>Sponsorship</SectionEyebrow>
           <SectionTitle>
@@ -375,10 +376,10 @@ function Sponsorship() {
             Align your brand with premium live entertainment. We work with sponsors who want more
             than visibility — they want to be part of the story.
           </p>
-          <div className="mt-10 grid sm:grid-cols-2 gap-6">
+          <div className="mt-10 grid sm:grid-cols-2 gap-5">
             {benefits.map(({ Icon, title, desc }) => (
-              <div key={title} className="border border-border rounded-2xl p-6 bg-card/40 hover:border-[var(--gold)]/50 transition">
-                <div className="h-10 w-10 rounded-full grid place-items-center bg-[var(--gold)]/10 text-[var(--gold)] mb-4">
+              <div key={title} className="border border-[var(--gold)]/20 rounded-2xl p-6 bg-[oklch(0.22_0.02_75)]/70 backdrop-blur-sm hover:border-[var(--gold)]/60 hover:bg-[oklch(0.24_0.025_75)]/80 transition">
+                <div className="h-10 w-10 rounded-full grid place-items-center bg-[var(--gold)]/20 text-[var(--gold)] mb-4">
                   <Icon size={18} />
                 </div>
                 <h4 className="font-button font-semibold tracking-wide text-foreground">{title}</h4>
@@ -397,7 +398,7 @@ function SponsorForm() {
   const [submitted, setSubmitted] = useState(false);
   return (
     <form
-      className="cinema-card p-8 md:p-10 self-start"
+      className="relative p-8 md:p-10 self-start rounded-2xl border border-[var(--gold)]/25 bg-[oklch(0.22_0.02_75)]/70 backdrop-blur-sm shadow-[var(--shadow-card)]"
       onSubmit={(e) => {
         e.preventDefault();
         setSubmitted(true);
