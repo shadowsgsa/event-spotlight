@@ -398,7 +398,7 @@ function SponsorForm() {
   const [submitted, setSubmitted] = useState(false);
   return (
     <form
-      className="cinema-card p-8 md:p-10 self-start"
+      className="relative p-8 md:p-10 self-start rounded-2xl border border-[var(--gold)]/25 bg-[oklch(0.22_0.02_75)]/70 backdrop-blur-sm shadow-[var(--shadow-card)]"
       onSubmit={(e) => {
         e.preventDefault();
         setSubmitted(true);
