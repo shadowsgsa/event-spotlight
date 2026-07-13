@@ -363,8 +363,10 @@ function Sponsorship() {
     { Icon: Globe2, title: "Community Engagement", desc: "Be part of culture, not just a banner on the wall." },
   ];
   return (
-    <section className="relative py-24 md:py-32 border-t border-border">
-      <div className="mx-auto max-w-7xl px-6 lg:px-10 grid lg:grid-cols-2 gap-16">
+    <section className="relative py-24 md:py-32 border-t border-border overflow-hidden">
+      <div className="absolute inset-0 bg-gradient-to-br from-[var(--gold)]/[0.08] via-background to-[var(--ember)]/[0.06]" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,oklch(0.78_0.13_85/0.15),transparent_60%)]" />
+      <div className="relative mx-auto max-w-7xl px-6 lg:px-10 grid lg:grid-cols-2 gap-16">
         <div>
           <SectionEyebrow>Sponsorship</SectionEyebrow>
           <SectionTitle>
@@ -374,10 +376,10 @@ function Sponsorship() {
             Align your brand with premium live entertainment. We work with sponsors who want more
             than visibility — they want to be part of the story.
           </p>
-          <div className="mt-10 grid sm:grid-cols-2 gap-6">
+          <div className="mt-10 grid sm:grid-cols-2 gap-5">
             {benefits.map(({ Icon, title, desc }) => (
-              <div key={title} className="border border-border rounded-2xl p-6 bg-card/40 hover:border-[var(--gold)]/50 transition">
-                <div className="h-10 w-10 rounded-full grid place-items-center bg-[var(--gold)]/10 text-[var(--gold)] mb-4">
+              <div key={title} className="border border-[var(--gold)]/20 rounded-2xl p-6 bg-[oklch(0.22_0.02_75)]/70 backdrop-blur-sm hover:border-[var(--gold)]/60 hover:bg-[oklch(0.24_0.025_75)]/80 transition">
+                <div className="h-10 w-10 rounded-full grid place-items-center bg-[var(--gold)]/20 text-[var(--gold)] mb-4">
                   <Icon size={18} />
                 </div>
                 <h4 className="font-button font-semibold tracking-wide text-foreground">{title}</h4>
