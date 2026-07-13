@@ -212,7 +212,7 @@ function VideoHighlights() {
           </div>
         </div>
 
-        <div className="grid lg:grid-cols-3 gap-6">
+        <div className="grid lg:grid-cols-3 gap-4">
           <div className="lg:col-span-2 cinema-card aspect-video overflow-hidden">
             <iframe
               key={active.id}
@@ -223,7 +223,7 @@ function VideoHighlights() {
               allowFullScreen
             />
           </div>
-          <div className="grid grid-cols-2 lg:grid-cols-1 gap-4">
+          <div className="grid grid-cols-2 lg:grid-cols-1 gap-3">
             {videos.map((v) => (
               <button
                 key={v.id}
@@ -267,13 +267,12 @@ function PastShowcase() {
           </SectionTitle>
         </div>
 
-        <div className="mt-14 columns-1 sm:columns-2 lg:columns-3 gap-6 space-y-6">
+        <div className="mt-14 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
           {[...pastEvents, ...featuredEvents.slice(0, 3)].map((e, i) => (
             <Link
               key={e.slug + i}
               to={`/events/${e.slug}`}
-              className="cinema-card group block break-inside-avoid"
-              style={{ aspectRatio: i % 3 === 0 ? "3/4" : i % 3 === 1 ? "4/5" : "3/4.5" }}
+              className="cinema-card group block aspect-[3/4]"
             >
               <div className="relative h-full w-full overflow-hidden">
                 <img
