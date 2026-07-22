@@ -1,6 +1,9 @@
 import luckyAliDinner from "@/assets/images/lucky-ali-dinner.png";
 import luckyAliDallas from "@/assets/images/lucky-ali-dallas.png";
 import badBoys from "@/assets/images/bad-boys.png";
+import lakhwinderWadali from "@/assets/images/lakhwinder-wadali.png";
+import satinderSartaaj from "@/assets/images/satinder-sartaaj.png";
+import jaanePehchaaneAnjane from "@/assets/images/jaane-pehchaane-anjane.png";
 import bollywoodNight from "@/assets/event-bollywood-night.jpg";
 import culturalFest from "@/assets/event-cultural-fest.jpg";
 import redCarpet from "@/assets/event-red-carpet.jpg";
@@ -38,6 +41,66 @@ export interface EventItem {
 }
 
 export const events: EventItem[] = [
+  {
+    slug: "lakhwinder-wadali-rangrez-tour",
+    title: "Lakhwinder Wadali — Live in Concert",
+    tagline: "Rangrez · The Wadali Legacy Tour USA",
+    category: "Concerts",
+    date: "August 7, 2026",
+    isoDate: "2026-08-07",
+    time: "7:00 PM",
+    venue: "Grand Center",
+    address: "300 Chisholm Pl, Plano, TX 75075",
+    city: "Plano, TX",
+    poster: lakhwinderWadali,
+    description:
+      "Experience the soulful Sufi legacy live on stage — Lakhwinder Wadali brings the Rangrez tour to Dallas as part of The Wadali Legacy Tour USA. An unforgettable evening of classical Sufi music produced by 24 Seven Entertainment with Mera Box Office, Prabha Entertainment and Global R Entertainment.",
+    artists: ["Lakhwinder Wadali"],
+    ticketUrl: "https://meraboxoffice.com",
+    ticketPartner: "MeraBoxOffice",
+    featured: true,
+    gallery: [bollywoodNight, culturalFest],
+  },
+  {
+    slug: "satinder-sartaaj-heritage-tour-dallas",
+    title: "Dr. Satinder Sartaaj — Heritage Tour",
+    tagline: "Live in Dallas",
+    category: "Concerts",
+    date: "July 5, 2026",
+    isoDate: "2026-07-05",
+    time: "7:00 PM",
+    venue: "AT&T Performing Arts Center",
+    address: "2403 Flora St, Dallas, TX 75201",
+    city: "Dallas, TX",
+    poster: satinderSartaaj,
+    description:
+      "Dr. Satinder Sartaaj brings his Heritage Tour to Dallas — a poetic evening of Sufi music and Punjabi cultural heritage at the iconic AT&T Performing Arts Center. Presented by Mera Box Office and 24 Seven Entertainment.",
+    artists: ["Dr. Satinder Sartaaj"],
+    ticketUrl: "https://satindersartaaj.com/shows",
+    ticketPartner: "SatinderSartaaj.com",
+    featured: true,
+    gallery: [bollywoodNight, redCarpet],
+  },
+  {
+    slug: "jaane-pehchaane-anjane-labor-day",
+    title: "Jaane Pehchaane Anjane",
+    tagline: "A Labor Day holiday play starring Anupam Kher & Swaroop Sampat",
+    category: "Meet & Greets",
+    date: "September 7, 2026",
+    isoDate: "2026-09-07",
+    time: "8:00 PM Onwards",
+    venue: "Charles W. Eisemann Center",
+    address: "2351 Performance Dr, Richardson, TX 75082",
+    city: "Richardson, TX",
+    poster: jaanePehchaaneAnjane,
+    description:
+      "A Hindi stage play directed by Gajendra Ahire with music by Anu Malik, starring Anupam Kher and Swaroop Sampat. A Labor Day holiday special evening of theatre presented by Mera Box Office and 24 Seven Entertainment.",
+    artists: ["Anupam Kher", "Swaroop Sampat"],
+    ticketUrl: "https://www.eisemanncenter.com",
+    ticketPartner: "Eisemann Center",
+    featured: true,
+    gallery: [redCarpet, corporateGala],
+  },
   {
     slug: "lucky-ali-up-close-personal",
     title: "Lucky Ali — Up Close & Personal",
